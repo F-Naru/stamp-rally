@@ -1,0 +1,57 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+}
+.stamp-card {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+.stamp-item {
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+}
+.stamp-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #eee; /* 未獲得の状態 */
+    border-radius: 50%;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+/* 獲得済みのスタンプのデザイン */
+.stamp-item.acquired .stamp-icon {
+    background-color: #9defff; /* 獲得済みの色 */
+    background-image: url('stamp.png'); /* 星などのアイコン画像 */
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* スタンプ獲得時のポップアップメッセージ */
+.message-popup {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: top 0.5s ease-in-out;
+}
+.message-popup.show {
+    top: 20px;
+}
+
+/* --- ↓↓↓ ここからレスポンシブ対応コード ↓↓↓ --- */
+@media (max-width: 600px) {
+    .stamp-card {
+        /* アイテムを縦に並べる */
+        flex-direction: column;
+        /* 中央揃えにする */
+        align-items: center;
+    }
+}

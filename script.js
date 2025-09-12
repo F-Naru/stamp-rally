@@ -1,4 +1,11 @@
-const GAS_API_URL = 'https://script.google.com/macros/s/AKfycbyjrqr1GtvUVPnlqKAGFfXzNol2IkQR4i1b3xjcuhYy_x-PGtfys7ZNuk5PgJYPceoqtg/exec';
+// .envからGAS_API_URLを取得
+let GAS_API_URL = '';
+if (typeof process !== 'undefined' && process.env && process.env.GAS_API_URL) {
+    GAS_API_URL = process.env.GAS_API_URL;
+} else {
+    // Fallback: 直接値を記載（開発用）
+    GAS_API_URL = '';
+}
 
 /**
  * デバイス用のユニークIDを取得または生成する関数
